@@ -1,0 +1,442 @@
+/* --- CONFIGURACIÓN GLOBAL Y FONDO --- */
+
+body {
+
+    /* Aquí pones tu imagen; asegúrate de que la ruta sea correcta */
+
+    background-image: linear-gradient(135deg, rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url('../img/fondo.jpg');
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-attachment: fixed;
+
+    min-height: 100vh;
+
+    margin: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-family: 'Poppins', sans-serif;
+
+    color: white;
+
+}
+
+
+
+/* --- CONTENEDOR PRINCIPAL (EL VIDRIO) --- */
+
+.glass-container {
+
+    background: rgba(255, 255, 255, 0.07);
+
+    backdrop-filter: blur(20px);
+
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    border-radius: 30px;
+
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+
+   
+
+    /* Ajuste de ancho para que no se encime en Laptop */
+
+    width: 95%;
+
+    max-width: 1200px;
+
+    margin: 20px auto;
+
+}
+
+
+
+/* --- ESTILO DE LA TARJETA (TAMAÑO XL) --- */
+
+.card-3d {
+
+    /* clamp(mínimo, preferido, máximo) */
+
+    width: clamp(300px, 100%, 500px);
+
+    height: clamp(190px, 30vw, 310px);
+
+    perspective: 2000px;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+.card-inner {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+    transform-style: preserve-3d;
+
+    cursor: pointer;
+
+}
+
+
+
+/* Clase que activa el giro desde JS */
+
+.is-flipped {
+
+    transform: rotateY(180deg);
+
+}
+
+
+
+.card-front, .card-back {
+
+    position: absolute;
+
+    width: 100%;
+
+    height: 100%;
+
+    backface-visibility: hidden;
+
+    border-radius: 25px;
+
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.05));
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+
+    overflow: hidden;
+
+}
+
+
+
+.card-back {
+
+    transform: rotateY(180deg);
+
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.9), rgba(40, 40, 40, 0.8));
+
+}
+
+
+
+/* --- CONTENIDO INTERNO DE LA TARJETA --- */
+
+.card-chip {
+
+    width: clamp(50px, 8vw, 70px);
+
+}
+
+
+
+.visa-logo {
+
+    font-weight: 800;
+
+    font-style: italic;
+
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+
+}
+
+
+
+.card-number-display {
+
+    font-family: 'Courier New', monospace;
+
+    font-size: clamp(1rem, 3.5vw, 1.8rem);
+
+    letter-spacing: 1.5px;
+
+    margin: 2.5rem 0 !important;
+
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+
+
+
+}
+
+
+
+.black-bar {
+
+    background: #000;
+
+    height: 55px;
+
+    width: 100%;
+
+    margin-top: 35px;
+
+}
+
+
+
+.cvv-area {
+
+    background: #fff;
+
+    width: 85%;
+
+    margin: 20px auto;
+
+    border-radius: 5px;
+
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    padding-right: 15px;
+
+}
+
+
+
+/* --- ESTILOS DEL FORMULARIO --- */
+
+.custom-input, .custom-select {
+
+    background-color: rgba(255, 255, 255, 0.1) !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+
+    color: white !important;
+
+    padding: 12px !important;
+
+    border-radius: 12px !important;
+
+}
+
+
+
+.custom-input::placeholder {
+
+    color: rgba(255, 255, 255, 0.5);
+
+}
+
+
+
+.custom-select option {
+
+    background-color: #222 !important;/* Fondo oscuro para que se lean las opciones */
+
+    color: white !important;
+
+}
+
+
+
+.btn-pay {
+
+    background: linear-gradient(45deg, #d81b60, #8e24aa);
+
+    border: none;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    font-weight: bold;
+
+    color: white;
+
+    transition: all 0.3s ease;
+
+    margin-top: 10px;
+
+}
+
+
+
+.btn-pay:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 10px 20px rgba(216, 27, 96, 0.4);
+
+}
+
+
+
+/* --- MEDIA QUERIES (SEPARACIÓN PARA LAPTOP) --- */
+
+@media (min-width: 992px) {
+
+    /* Espaciado entre la columna de la tarjeta y la del formulario */
+
+    .col-lg-7 {
+
+        padding-right: 60px !important;
+
+    }
+
+   
+
+    .col-lg-5 {
+
+        padding-left: 40px !important;
+
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+
+    }
+
+}
+
+
+
+/* --- AJUSTES PARA MÓVIL (YA SE VE BIEN) --- */
+
+@media (max-width: 768px) {
+
+    .glass-container {
+
+        padding: 1.5rem !important;
+
+        margin: 10px;
+
+    }
+
+   
+
+    .card-3d {
+
+        width: 100%;
+
+        max-width: 320px;
+
+        height: 200px;
+
+        margin-bottom: 30px;
+
+    }
+
+}
+
+/* --- NUEVOS ESTILOS PARA LA VUELTA --- */
+
+/* 1. Fondo de cristal para la tarjeta al girar */
+.card-inner.is-flipped .card-back {
+    background: rgba(255, 255, 255, 0.1) !important; /* Cristal translúcido */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 2. Alineación del CVV dentro de la cintilla blanca */
+.cvv-area {
+    background: #fff;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 4px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Alinea a la derecha */
+    padding-right: 15px;
+}
+
+.cvv-content {
+    display: flex;
+    flex-direction: column; /* Texto arriba, números abajo */
+    align-items: flex-end; /* Alinea texto y números a la derecha */
+}
+
+.cvv-content small {
+    font-size: 0.7rem;
+    line-height: 1;
+    margin-bottom: 2px;
+}
+
+.cvv-content span {
+    font-size: 1.1rem;
+    line-height: 1;
+    font-family: 'Courier New', monospace;
+}
+
+
+/* --- CORRECCIÓN DE COLORES Y AUTOCOMPLETADO --- */
+
+/* Evita que el fondo se ponga blanco al escribir o autocompletar */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color: white !important;
+    -webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.1) inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Forzar que los inputs y selects SIEMPRE sean transparentes/cristal */
+.custom-input, .custom-select {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+}
+
+/* Estilo para que las opciones del menú sean legibles (Fondo oscuro, texto blanco) */
+.custom-select option {
+    background-color: #222 !important; 
+    color: white !important;
+}
+
+/* --- CORRECCIÓN FONDO TRASERO DE LA TARJETA --- */
+.card-back {
+    /* Quitamos el gris/negro y ponemos cristal */
+    background: rgba(255, 255, 255, 0.1) !important; 
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transform: rotateY(180deg);
+}
+
+/* Asegurar que el CVV se vea bien sobre el cristal */
+.cvv-area {
+    background: rgba(255, 255, 255, 0.8) !important; /* Cintilla blanca semi-transparente */
+}
+
+/* --- ESTILOS NAV Y FOOTER GLASS --- */
+.glass-nav {
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-footer {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Ajuste para que el footer siempre esté abajo si hay poco contenido */
+body {
+    display: flex;
+    flex-direction: column;
+}
