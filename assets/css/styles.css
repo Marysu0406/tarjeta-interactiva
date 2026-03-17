@@ -208,3 +208,11 @@ input:-webkit-autofill {
         font-size: 0.65rem !important;
     }
 }
+
+@media (min-width: 992px) {
+    /* Seleccionamos el contenedor que tiene el Titular y la Fecha */
+    .card-front .d-flex.justify-content-between.mt-4 {
+        margin-top: 5rem !important; /* Aumenta este número si quieres que bajen más */
+    }
+
+}
