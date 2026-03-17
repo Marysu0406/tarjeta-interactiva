@@ -93,8 +93,8 @@ body {
 .card-number-display {
     font-family: 'Courier New', monospace;
     font-size: clamp(1rem, 3.5vw, 1.8rem);
-    letter-spacing: 1.5px;
-    margin: 2.5rem 0 !important;
+    letter-spacing: 0.9px;
+    margin: 1.5rem 0 !important;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
     white-space: nowrap;
 }
@@ -178,7 +178,7 @@ input:-webkit-autofill {
 /* Móvil - CORRECCIÓN DE VISIBILIDAD */
 @media (max-width: 768px) {
     .glass-container {
-        padding: 1.5rem !important;
+        padding: 1rem !important;
         margin: 10px;
     }
 
